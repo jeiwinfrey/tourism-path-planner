@@ -107,7 +107,12 @@ export default function Onboarding() {
                 size="lg"
                 className="h-14 rounded-full bg-slate-900 px-10 text-lg font-semibold text-white hover:bg-slate-800 hover:shadow-lg"
               >
-                <Link href={`/map?interests=${selectedInterests.join(",")}`}>
+                {/* Basic AI-style rule: IF an interest is selected, THEN pass it as a flag to the map page */}
+                <Link
+                  href={`/map?${selectedInterests
+                    .map((id) => `${id}=true`)
+                    .join("&")}`}
+                >
                   Next
                 </Link>
               </Button>
