@@ -80,10 +80,8 @@ export default function MapPage() {
       allDestinations = allDestinations.concat(shoppingData as Destination[]);
     }
 
-  // Remove duplicates by id
-  const destinations = Array.from(
-    new Map(allDestinations.map((dest) => [dest.id, dest])).values()
-  );
+  // Keep all destinations, even if they have duplicate IDs
+  const destinations = allDestinations;
 
   // Frontend functionality: Determine if location is open based on timeRange
   const getIsOpen = (timeRange: string): boolean => {
@@ -178,8 +176,8 @@ export default function MapPage() {
           {openDestinations.length > 0 && (
             <>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-8">
-                {openDestinations.map((place) => (
-                  <DestinationCard key={place.id} place={place} />
+                {openDestinations.map((place, index) => (
+                  <DestinationCard key={`${place.id}-${index}`} place={place} />
                 ))}
               </div>
             </>
@@ -195,8 +193,8 @@ export default function MapPage() {
           {/* Closed Destinations */}
           {closedDestinations.length > 0 && (
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {closedDestinations.map((place) => (
-                <DestinationCard key={place.id} place={place} />
+              {closedDestinations.map((place, index) => (
+                <DestinationCard key={`${place.id}-${index}`} place={place} />
               ))}
             </div>
           )}
