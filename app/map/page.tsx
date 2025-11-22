@@ -3,77 +3,77 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import churchesData from "@/data/churches.json";
+import beachesData from "@/data/beaches.json";
+import museumsData from "@/data/museums.json";
+import cuisineData from "@/data/cuisine.json";
+import natureData from "@/data/nature.json";
+import landmarksData from "@/data/landmarks.json";
+import historyData from "@/data/history.json";
+import shoppingData from "@/data/shopping.json";
+
+// Type definition for destination
+type Destination = {
+  id: number;
+  title: string;
+  description: string;
+  rating: number;
+  reviews: number;
+  type: string;
+  timeRange: string;
+  latitude: number;
+  longitude: number;
+  image: string;
+};
 
 export default function MapPage() {
-  // Placeholder data to match the Airbnb style list
-  const destinations = [
-    {
-      id: 1,
-      title: "Paoay Church",
-      description: "UNESCO World Heritage Site",
-      rating: 4.9,
-      reviews: 328,
-      type: "Historical Site",
-      timeRange: "8:00 AM - 5:00 PM",
-      isOpen: true,
-      imageColor: "bg-orange-100",
-    },         
-    {
-      id: 2,
-      title: "Bangui Windmills",
-      description: "Iconic sustainable energy farm",
-      rating: 4.8,
-      reviews: 450,
-      type: "Landmark",
-      timeRange: "6:00 AM - 6:00 PM",
-      isOpen: true,
-      imageColor: "bg-blue-100",
-    },
-    {
-      id: 3,
-      title: "Kapurpurawan Rocks",
-      description: "Natural limestone formations",
-      rating: 4.7,
-      reviews: 210,
-      type: "Nature",
-      timeRange: "24 hours",
-      isOpen: true,
-      imageColor: "bg-stone-200",
-    },
-    {
-      id: 4,
-      title: "Pagudpud Beach",
-      description: "White sand and crystal waters",
-      rating: 4.9,
-      reviews: 512,
-      type: "Beach",
-      timeRange: "24 hours",
-      isOpen: true,
-      imageColor: "bg-cyan-100",
-    },
-    {
-      id: 5,
-      title: "Malacañang of the North",
-      description: "Presidential museum",
-      rating: 4.6,
-      reviews: 180,
-      type: "Museum",
-      timeRange: "9:00 AM - 4:00 PM",
-      isOpen: false,
-      imageColor: "bg-rose-100",
-    },
-    {
-      id: 6,
-      title: "Cape Bojeador Lighthouse",
-      description: "Cultural heritage structure",
-      rating: 4.7,
-      reviews: 290,
-      type: "Landmark",
-      timeRange: "8:00 AM - 5:00 PM",
-      isOpen: true,
-      imageColor: "bg-slate-200",
-    },
-  ];
+  // Combine all destinations from different interest categories
+  const allDestinations = [
+    ...churchesData,
+    ...beachesData,
+    ...museumsData,
+    ...cuisineData,
+    ...natureData,
+    ...landmarksData,
+    ...historyData,
+    ...shoppingData,
+  ] as Destination[];
+  
+  // Remove duplicates by id
+  const destinations = Array.from(
+    new Map(allDestinations.map((dest) => [dest.id, dest])).values()
+  );
+
+  // Frontend functionality: Determine if location is open based on timeRange
+  const getIsOpen = (timeRange: string): boolean => {
+    if (timeRange === "24 hours") return true;
+    
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const currentTime = currentHour * 60 + currentMinute; // Convert to minutes
+    
+    const [openTime, closeTime] = timeRange.split(" - ");
+    const [openHour, openMinute] = openTime.replace(" AM", "").replace(" PM", "").split(":").map(Number);
+    const [closeHour, closeMinute] = closeTime.replace(" AM", "").replace(" PM", "").split(":").map(Number);
+    
+    const openMinutes = (openTime.includes("PM") && openHour !== 12 ? openHour + 12 : openHour === 12 && openTime.includes("AM") ? 0 : openHour) * 60 + openMinute;
+    const closeMinutes = (closeTime.includes("PM") && closeHour !== 12 ? closeHour + 12 : closeHour === 12 && closeTime.includes("AM") ? 0 : closeHour) * 60 + closeMinute;
+    
+    return currentTime >= openMinutes && currentTime <= closeMinutes;
+  };
+
+  // Frontend functionality: Generate image color based on type
+  const getImageColor = (type: string): string => {
+    const colorMap: Record<string, string> = {
+      "Historical Site": "bg-orange-100",
+      "Landmark": "bg-blue-100",
+      "Nature": "bg-stone-200",
+      "Beach": "bg-cyan-100",
+      "Museum": "bg-rose-100",
+    };
+    return colorMap[type] || "bg-slate-200";
+  };
 
   return (
     <div className="flex h-screen flex-col bg-white font-sans text-slate-900 overflow-hidden">
@@ -101,7 +101,7 @@ export default function MapPage() {
         {/* Left Column - Cards List */}
         <div className="w-full md:w-[55%] lg:w-[45%] xl:w-[40%] h-full overflow-y-auto p-6 sm:px-8 scrollbar-thin scrollbar-thumb-slate-200">
           <div className="mb-8">
-            <p className="text-sm font-medium text-slate-500 mb-2">6 stops found</p>
+            <p className="text-sm font-medium text-slate-500 mb-2">{destinations.length} stops found</p>
             <h1 className="text-3xl font-bold text-slate-900">Your Personalized Itinerary</h1>
           </div>
 
@@ -112,10 +112,14 @@ export default function MapPage() {
                 className="group cursor-pointer border-0 shadow-none bg-transparent gap-0 py-0 rounded-none"
               >
                 {/* Card Image Area */}
-                <div className={`relative aspect-square w-full overflow-hidden rounded-xl ${place.imageColor} mb-3`}>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                    <Image src="/map-pin-area.svg" width={40} height={40} alt="Icon" />
-                  </div>
+                <div className={`relative aspect-square w-full overflow-hidden rounded-xl ${getImageColor(place.type)} mb-3`}>
+                  <Image
+                    src={place.image}
+                    alt={place.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
 
                 {/* Card Content */}
@@ -129,8 +133,8 @@ export default function MapPage() {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <span className="text-slate-500">{place.timeRange}</span>
-                    <span className={`font-medium ${place.isOpen ? 'text-green-600' : 'text-red-600'}`}>
-                      {place.isOpen ? '· Open' : '· Closed'}
+                    <span className={`font-medium ${getIsOpen(place.timeRange) ? 'text-green-600' : 'text-red-600'}`}>
+                      {getIsOpen(place.timeRange) ? '· Open' : '· Closed'}
                     </span>
                   </div>
                   <p className="text-slate-500 text-sm">{place.type}</p>
