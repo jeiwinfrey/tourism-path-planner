@@ -10,6 +10,18 @@
     "latitude": 18.0815,
     "longitude": 120.5942,
     "image": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 11,
+    "title": "Marcos Museum and Mausoleum",
+    "description": "Museum and mausoleum dedicated to the Marcos family history and artifacts.",
+    "rating": 4.4,
+    "reviews": 220,
+    "type": "Museum",
+    "timeRange": "9:00 AM - 4:00 PM",
+    "latitude": 18.0585,
+    "longitude": 120.5387,
+    "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&h=600&fit=crop"
   }
 ]
 

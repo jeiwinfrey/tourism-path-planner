@@ -23,5 +23,30 @@
     "longitude": 120.6942,
     "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
   }
+  ,
+  {
+    "id": 15,
+    "title": "Patapat Viaduct",
+    "description": "Scenic coastal bridge along the Maharlika Highway offering dramatic ocean views.",
+    "rating": 4.7,
+    "reviews": 320,
+    "type": "Landmark",
+    "timeRange": "24 hours",
+    "latitude": 18.6299,
+    "longitude": 120.8445,
+    "image": "https://images.unsplash.com/photo-1596394634084-656068a45648?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 17,
+    "title": "Bantay Abot Cave",
+    "description": "Natural rock formation with a hole that frames the sea — a popular photo spot in Pagudpud.",
+    "rating": 4.5,
+    "reviews": 185,
+    "type": "Landmark",
+    "timeRange": "24 hours",
+    "latitude": 18.5600,
+    "longitude": 120.7900,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+  }
 ]
 

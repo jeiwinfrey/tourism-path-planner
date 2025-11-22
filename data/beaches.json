@@ -10,6 +10,30 @@
     "latitude": 18.5639,
     "longitude": 120.7894,
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 9,
+    "title": "Saud Beach",
+    "description": "Popular beach in Pagudpud famous for its calm waters and resorts.",
+    "rating": 4.8,
+    "reviews": 340,
+    "type": "Beach",
+    "timeRange": "24 hours",
+    "latitude": 18.5655,
+    "longitude": 120.7902,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 10,
+    "title": "Blue Lagoon (Maira-ira Beach)",
+    "description": "Scenic cove with clear blue waters and cliffs, great for swimming and surfing.",
+    "rating": 4.7,
+    "reviews": 290,
+    "type": "Beach",
+    "timeRange": "24 hours",
+    "latitude": 18.5660,
+    "longitude": 120.7885,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
   }
 ]
 

@@ -1,2 +1,27 @@
-[]
+[
+  {
+    "id": 19,
+    "title": "Batac Empanada Stall",
+    "description": "Famous empanada maker serving Ilocos-style beef empanadas and local snacks.",
+    "rating": 4.6,
+    "reviews": 420,
+    "type": "Cuisine",
+    "timeRange": "8:00 AM - 6:00 PM",
+    "latitude": 18.0310,
+    "longitude": 120.5310,
+    "image": "https://images.unsplash.com/photo-1604908177522-1d3f6d8d3f0b?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 20,
+    "title": "Pagudpud Seafood Grill",
+    "description": "Popular seaside restaurants offering freshly grilled seafood.",
+    "rating": 4.5,
+    "reviews": 210,
+    "type": "Cuisine",
+    "timeRange": "10:00 AM - 10:00 PM",
+    "latitude": 18.5650,
+    "longitude": 120.7890,
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop"
+  }
+]
 

@@ -5,11 +5,35 @@
     "description": "UNESCO World Heritage Site",
     "rating": 4.9,
     "reviews": 328,
-    "type": "Historical Site",
+    "type": "Church",
     "timeRange": "8:00 AM - 5:00 PM",
     "latitude": 18.0548,
     "longitude": 120.5308,
     "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 7,
+    "title": "St. William's Cathedral (Laoag Cathedral)",
+    "description": "Baroque-style cathedral in the city of Laoag with a nearby sinking bell tower.",
+    "rating": 4.6,
+    "reviews": 210,
+    "type": "Church",
+    "timeRange": "7:00 AM - 6:00 PM",
+    "latitude": 18.1961,
+    "longitude": 120.5955,
+    "image": "https://images.unsplash.com/photo-1582719508461-905c673771a4?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 8,
+    "title": "Sarrat Church (Sta. Monica Parish)",
+    "description": "Historic Sarrat church known for its grand stone convent and heritage value.",
+    "rating": 4.5,
+    "reviews": 134,
+    "type": "Church",
+    "timeRange": "7:00 AM - 5:00 PM",
+    "latitude": 18.1980,
+    "longitude": 120.4700,
+    "image": "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&h=600&fit=crop"
   }
 ]
 

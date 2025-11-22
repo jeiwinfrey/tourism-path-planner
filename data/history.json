@@ -5,7 +5,7 @@
     "description": "UNESCO World Heritage Site",
     "rating": 4.9,
     "reviews": 328,
-    "type": "Historical Site",
+    "type": "History",
     "timeRange": "8:00 AM - 5:00 PM",
     "latitude": 18.0548,
     "longitude": 120.5308,
@@ -17,7 +17,7 @@
     "description": "Presidential museum",
     "rating": 4.6,
     "reviews": 180,
-    "type": "Museum",
+    "type": "History",
     "timeRange": "9:00 AM - 4:00 PM",
     "latitude": 18.0815,
     "longitude": 120.5942,
@@ -29,11 +29,24 @@
     "description": "Cultural heritage structure",
     "rating": 4.7,
     "reviews": 290,
-    "type": "Landmark",
+    "type": "History",
     "timeRange": "8:00 AM - 5:00 PM",
     "latitude": 18.4800,
     "longitude": 120.6942,
     "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
+  }
+  ,
+  {
+    "id": 18,
+    "title": "Laoag Sinking Bell Tower",
+    "description": "Historic bell tower known for its slowly sinking foundation — a local landmark.",
+    "rating": 4.4,
+    "reviews": 140,
+    "type": "History",
+    "timeRange": "7:00 AM - 6:00 PM",
+    "latitude": 18.1970,
+    "longitude": 120.5960,
+    "image": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=800&h=600&fit=crop"
   }
 ]
 

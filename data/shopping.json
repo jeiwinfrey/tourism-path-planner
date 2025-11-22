@@ -1,2 +1,27 @@
-[]
+[
+  {
+    "id": 21,
+    "title": "Laoag Public Market",
+    "description": "Local market selling handicrafts, pasalubong items, and Ilocos specialties.",
+    "rating": 4.2,
+    "reviews": 98,
+    "type": "Shopping",
+    "timeRange": "6:00 AM - 6:00 PM",
+    "latitude": 18.1910,
+    "longitude": 120.5940,
+    "image": "https://images.unsplash.com/photo-1541542684-6f2f9d0ab0a7?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 22,
+    "title": "Bangui Souvenir Stalls",
+    "description": "Small stalls near the Bangui Windmills selling local crafts and souvenirs.",
+    "rating": 4.1,
+    "reviews": 56,
+    "type": "Shopping",
+    "timeRange": "8:00 AM - 5:00 PM",
+    "latitude": 18.5340,
+    "longitude": 120.7850,
+    "image": "https://images.unsplash.com/photo-1503602642458-232111445657?w=800&h=600&fit=crop"
+  }
+]
 

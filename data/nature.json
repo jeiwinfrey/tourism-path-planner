@@ -23,5 +23,30 @@
     "longitude": 120.7856,
     "image": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop"
   }
+  ,
+  {
+    "id": 13,
+    "title": "Paoay Sand Dunes",
+    "description": "Famous sand dunes offering 4x4 rides and sandboarding activities.",
+    "rating": 4.7,
+    "reviews": 410,
+    "type": "Nature",
+    "timeRange": "6:00 AM - 6:00 PM",
+    "latitude": 18.0350,
+    "longitude": 120.5600,
+    "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 14,
+    "title": "Kabigan Falls",
+    "description": "A scenic waterfall reached by a short trek through lush forest.",
+    "rating": 4.6,
+    "reviews": 260,
+    "type": "Nature",
+    "timeRange": "6:00 AM - 5:00 PM",
+    "latitude": 18.2000,
+    "longitude": 120.5200,
+    "image": "https://images.unsplash.com/photo-1508766206392-8bd5cf550d1d?w=800&h=600&fit=crop"
+  }
 ]
 
