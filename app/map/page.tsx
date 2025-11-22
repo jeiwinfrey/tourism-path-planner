@@ -63,17 +63,6 @@ export default function MapPage() {
     return currentTime >= openMinutes && currentTime <= closeMinutes;
   };
 
-  // Frontend functionality: Generate image color based on type
-  const getImageColor = (type: string): string => {
-    const colorMap: Record<string, string> = {
-      "Historical Site": "bg-orange-100",
-      "Landmark": "bg-blue-100",
-      "Nature": "bg-stone-200",
-      "Beach": "bg-cyan-100",
-      "Museum": "bg-rose-100",
-    };
-    return colorMap[type] || "bg-slate-200";
-  };
 
   return (
     <div className="flex h-screen flex-col bg-white font-sans text-slate-900 overflow-hidden">
@@ -112,7 +101,7 @@ export default function MapPage() {
                 className="group cursor-pointer border-0 shadow-none bg-transparent gap-0 py-0 rounded-none"
               >
                 {/* Card Image Area */}
-                <div className={`relative aspect-square w-full overflow-hidden rounded-xl ${getImageColor(place.type)} mb-3`}>
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl mb-3">
                   <Image
                     src={place.image}
                     alt={place.title}
