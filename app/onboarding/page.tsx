@@ -93,13 +93,25 @@ export default function Onboarding() {
             >
               <Link href="/">Back</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              className="h-14 rounded-full bg-slate-900 px-10 text-lg font-semibold text-white hover:bg-slate-800 hover:shadow-lg"
-            >
-              <Link href="/map">Next</Link>
-            </Button>
+            {selectedInterests.length === 0 ? (
+              <Button
+                size="lg"
+                disabled
+                className="h-14 rounded-full bg-slate-900 px-10 text-lg font-semibold text-white opacity-50 cursor-not-allowed"
+              >
+                Next
+              </Button>
+            ) : (
+              <Button
+                asChild
+                size="lg"
+                className="h-14 rounded-full bg-slate-900 px-10 text-lg font-semibold text-white hover:bg-slate-800 hover:shadow-lg"
+              >
+                <Link href={`/map?interests=${selectedInterests.join(",")}`}>
+                  Next
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </main>
