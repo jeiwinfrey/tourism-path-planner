@@ -54,20 +54,7 @@ export default function MapPage() {
     wantsLandmarks ||
     wantsHistory ||
     wantsShopping;
-
-  if (!anySelected) {
-    // IF nothing is selected, THEN show all destinations.
-    allDestinations = [
-      ...(churchesData as Destination[]),
-      ...(beachesData as Destination[]),
-      ...(museumsData as Destination[]),
-      ...(cuisineData as Destination[]),
-      ...(natureData as Destination[]),
-      ...(landmarksData as Destination[]),
-      ...(historyData as Destination[]),
-      ...(shoppingData as Destination[]),
-    ];
-  } else {
+    // IF specific categories are selected, THEN include only those destinations.
     if (wantsChurches) {
       allDestinations = allDestinations.concat(churchesData as Destination[]);
     }
@@ -92,7 +79,6 @@ export default function MapPage() {
     if (wantsShopping) {
       allDestinations = allDestinations.concat(shoppingData as Destination[]);
     }
-  }
 
   // Remove duplicates by id
   const destinations = Array.from(
