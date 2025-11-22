@@ -19,7 +19,7 @@
 - [ ] Store location data (JSON file or database)
 
 ### 4. Rule-Based Path Planning 
-- [ ] Implement rules using the interest choices what to display in MapPage
+- [x] Implement rules using the interest choices what to display in MapPage
 
 ### 5. Implement UCS calculation
 - [ ] Using the weight/distances, get the most optimal route
