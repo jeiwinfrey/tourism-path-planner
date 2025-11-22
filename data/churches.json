@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "title": "Paoay Church",
+    "description": "UNESCO World Heritage Site",
+    "rating": 4.9,
+    "reviews": 328,
+    "type": "Historical Site",
+    "timeRange": "8:00 AM - 5:00 PM",
+    "latitude": 18.0548,
+    "longitude": 120.5308,
+    "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&h=600&fit=crop"
+  }
+]
+

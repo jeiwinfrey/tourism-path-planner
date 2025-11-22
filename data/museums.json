@@ -1,0 +1,15 @@
+[
+  {
+    "id": 5,
+    "title": "Malacañang of the North",
+    "description": "Presidential museum",
+    "rating": 4.6,
+    "reviews": 180,
+    "type": "Museum",
+    "timeRange": "9:00 AM - 4:00 PM",
+    "latitude": 18.0815,
+    "longitude": 120.5942,
+    "image": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop"
+  }
+]
+

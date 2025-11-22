@@ -1,0 +1,27 @@
+[
+  {
+    "id": 3,
+    "title": "Kapurpurawan Rocks",
+    "description": "Natural limestone formations",
+    "rating": 4.7,
+    "reviews": 210,
+    "type": "Nature",
+    "timeRange": "24 hours",
+    "latitude": 18.1623,
+    "longitude": 120.5000,
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 2,
+    "title": "Bangui Windmills",
+    "description": "Iconic sustainable energy farm",
+    "rating": 4.8,
+    "reviews": 450,
+    "type": "Landmark",
+    "timeRange": "6:00 AM - 6:00 PM",
+    "latitude": 18.5339,
+    "longitude": 120.7856,
+    "image": "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop"
+  }
+]
+

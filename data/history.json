@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "title": "Paoay Church",
+    "description": "UNESCO World Heritage Site",
+    "rating": 4.9,
+    "reviews": 328,
+    "type": "Historical Site",
+    "timeRange": "8:00 AM - 5:00 PM",
+    "latitude": 18.0548,
+    "longitude": 120.5308,
+    "image": "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 5,
+    "title": "Malacañang of the North",
+    "description": "Presidential museum",
+    "rating": 4.6,
+    "reviews": 180,
+    "type": "Museum",
+    "timeRange": "9:00 AM - 4:00 PM",
+    "latitude": 18.0815,
+    "longitude": 120.5942,
+    "image": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&h=600&fit=crop"
+  },
+  {
+    "id": 6,
+    "title": "Cape Bojeador Lighthouse",
+    "description": "Cultural heritage structure",
+    "rating": 4.7,
+    "reviews": 290,
+    "type": "Landmark",
+    "timeRange": "8:00 AM - 5:00 PM",
+    "latitude": 18.4800,
+    "longitude": 120.6942,
+    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=600&fit=crop"
+  }
+]
+

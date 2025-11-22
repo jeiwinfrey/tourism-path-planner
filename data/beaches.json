@@ -1,0 +1,15 @@
+[
+  {
+    "id": 4,
+    "title": "Pagudpud Beach",
+    "description": "White sand and crystal waters",
+    "rating": 4.9,
+    "reviews": 512,
+    "type": "Beach",
+    "timeRange": "24 hours",
+    "latitude": 18.5639,
+    "longitude": 120.7894,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop"
+  }
+]
+
