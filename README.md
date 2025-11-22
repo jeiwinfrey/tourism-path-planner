@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Ilocos Norte Tourism Path Planner
 
-## Getting Started
+This is a **Next.js 16** app that shows an onboarding flow and a map-style itinerary page (similar to Airbnb) for Ilocos Norte tourism.
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js** 20+ (recommended)
+- **npm** (comes with Node)
+
+### 1. Install dependencies
+
+From the project root (`tourism-path-planner`):
+
+```bash
+npm install
+```
+
+Run this once when you first clone the repo or when dependencies change.
+
+### 2. Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Main screens
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` – Welcome / landing page  
+- `/onboarding` – Select interests (churches, beaches, museums, etc.)  
+- `/map` – Airbnb-style list + map placeholder using data from `data/*.json`
 
-## Learn More
+### 4. Editing destination data
 
-To learn more about Next.js, take a look at the following resources:
+- Destination data is split by interest in the `data/` folder:
+  - `churches.json`, `beaches.json`, `museums.json`, `nature.json`, `landmarks.json`, `history.json`, `cuisine.json`, `shopping.json`
+- Each file is a JSON array of objects with:
+  - `id`, `title`, `description`, `rating`, `reviews`, `type`, `timeRange`, `latitude`, `longitude`, `image`
+- After editing JSON, just save the file; Next.js will hot-reload.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Images use `next/image` and remote URLs from `images.unsplash.com` (already configured in `next.config.ts`).
+- If `npm run dev` fails, try deleting `node_modules` and `package-lock.json`, then run `npm install` again.
