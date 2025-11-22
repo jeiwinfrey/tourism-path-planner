@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
@@ -27,18 +30,70 @@ type Destination = {
 };
 
 export default function MapPage() {
-  // Combine all destinations from different interest categories
-  const allDestinations = [
-    ...churchesData,
-    ...beachesData,
-    ...museumsData,
-    ...cuisineData,
-    ...natureData,
-    ...landmarksData,
-    ...historyData,
-    ...shoppingData,
-  ] as Destination[];
-  
+  const searchParams = useSearchParams();
+  // Read simple boolean flags passed from onboarding
+  const wantsChurches = searchParams.get("churches") === "true";
+  const wantsBeaches = searchParams.get("beaches") === "true";
+  const wantsMuseums = searchParams.get("museums") === "true";
+  const wantsCuisine = searchParams.get("cuisine") === "true";
+  const wantsNature = searchParams.get("nature") === "true";
+  const wantsLandmarks = searchParams.get("landmarks") === "true";
+  const wantsHistory = searchParams.get("history") === "true";
+  const wantsShopping = searchParams.get("shopping") === "true";
+
+  // Basic AI rules using if-statements:
+  // IF user selects a category, THEN include those destinations.
+  let allDestinations: Destination[] = [];
+
+  const anySelected =
+    wantsChurches ||
+    wantsBeaches ||
+    wantsMuseums ||
+    wantsCuisine ||
+    wantsNature ||
+    wantsLandmarks ||
+    wantsHistory ||
+    wantsShopping;
+
+  if (!anySelected) {
+    // IF nothing is selected, THEN show all destinations.
+    allDestinations = [
+      ...(churchesData as Destination[]),
+      ...(beachesData as Destination[]),
+      ...(museumsData as Destination[]),
+      ...(cuisineData as Destination[]),
+      ...(natureData as Destination[]),
+      ...(landmarksData as Destination[]),
+      ...(historyData as Destination[]),
+      ...(shoppingData as Destination[]),
+    ];
+  } else {
+    if (wantsChurches) {
+      allDestinations = allDestinations.concat(churchesData as Destination[]);
+    }
+    if (wantsBeaches) {
+      allDestinations = allDestinations.concat(beachesData as Destination[]);
+    }
+    if (wantsMuseums) {
+      allDestinations = allDestinations.concat(museumsData as Destination[]);
+    }
+    if (wantsCuisine) {
+      allDestinations = allDestinations.concat(cuisineData as Destination[]);
+    }
+    if (wantsNature) {
+      allDestinations = allDestinations.concat(natureData as Destination[]);
+    }
+    if (wantsLandmarks) {
+      allDestinations = allDestinations.concat(landmarksData as Destination[]);
+    }
+    if (wantsHistory) {
+      allDestinations = allDestinations.concat(historyData as Destination[]);
+    }
+    if (wantsShopping) {
+      allDestinations = allDestinations.concat(shoppingData as Destination[]);
+    }
+  }
+
   // Remove duplicates by id
   const destinations = Array.from(
     new Map(allDestinations.map((dest) => [dest.id, dest])).values()
@@ -62,6 +117,45 @@ export default function MapPage() {
     
     return currentTime >= openMinutes && currentTime <= closeMinutes;
   };
+
+  // Separate destinations into open and closed
+  const openDestinations = destinations.filter((place) => getIsOpen(place.timeRange));
+  const closedDestinations = destinations.filter((place) => !getIsOpen(place.timeRange));
+
+  // Component to render a destination card
+  const DestinationCard = ({ place }: { place: Destination }) => (
+    <Card className="group cursor-pointer border-0 shadow-none bg-transparent gap-0 py-0 rounded-none">
+      {/* Card Image Area */}
+      <div className="relative aspect-square w-full overflow-hidden rounded-xl mb-3">
+        <Image
+          src={place.image}
+          alt={place.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+
+      {/* Card Content */}
+      <div className="space-y-1">
+        <div className="flex justify-between items-start">
+          <h3 className="font-semibold text-slate-900 line-clamp-1">{place.title}</h3>
+          <div className="flex items-center gap-1 text-sm">
+            <Star className="w-3.5 h-3.5 fill-slate-900 text-slate-900" />
+            <span>{place.rating}</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-slate-500">{place.timeRange}</span>
+          <span className={`font-medium ${getIsOpen(place.timeRange) ? 'text-green-600' : 'text-red-600'}`}>
+            {getIsOpen(place.timeRange) ? '· Open' : '· Closed'}
+          </span>
+        </div>
+        <p className="text-slate-500 text-sm">{place.type}</p>
+        <p className="text-slate-500 text-sm truncate">{place.description}</p>
+      </div>
+    </Card>
+  );
 
 
   return (
@@ -94,44 +188,32 @@ export default function MapPage() {
             <h1 className="text-3xl font-bold text-slate-900">Your Personalized Itinerary</h1>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {destinations.map((place) => (
-              <Card
-                key={place.id}
-                className="group cursor-pointer border-0 shadow-none bg-transparent gap-0 py-0 rounded-none"
-              >
-                {/* Card Image Area */}
-                <div className="relative aspect-square w-full overflow-hidden rounded-xl mb-3">
-                  <Image
-                    src={place.image}
-                    alt={place.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+          {/* Open Destinations */}
+          {openDestinations.length > 0 && (
+            <>
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 mb-8">
+                {openDestinations.map((place) => (
+                  <DestinationCard key={place.id} place={place} />
+                ))}
+              </div>
+            </>
+          )}
 
-                {/* Card Content */}
-                <div className="space-y-1">
-                  <div className="flex justify-between items-start">
-                    <h3 className="font-semibold text-slate-900 line-clamp-1">{place.title}</h3>
-                    <div className="flex items-center gap-1 text-sm">
-                      <Star className="w-3.5 h-3.5 fill-slate-900 text-slate-900" />
-                      <span>{place.rating}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <span className="text-slate-500">{place.timeRange}</span>
-                    <span className={`font-medium ${getIsOpen(place.timeRange) ? 'text-green-600' : 'text-red-600'}`}>
-                      {getIsOpen(place.timeRange) ? '· Open' : '· Closed'}
-                    </span>
-                  </div>
-                  <p className="text-slate-500 text-sm">{place.type}</p>
-                  <p className="text-slate-500 text-sm truncate">{place.description}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
+          {/* Divider between open and closed */}
+          {openDestinations.length > 0 && closedDestinations.length > 0 && (
+            <div className="my-8 border-t border-slate-200">
+
+            </div>
+          )}
+
+          {/* Closed Destinations */}
+          {closedDestinations.length > 0 && (
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {closedDestinations.map((place) => (
+                <DestinationCard key={place.id} place={place} />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Right Column - Map Placeholder */}
