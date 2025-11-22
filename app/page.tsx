@@ -11,7 +11,7 @@ export default function Welcome() {
           {/* Logo placeholder */}
           <div className="flex items-center gap-1 font-medium text-xl tracking-tight">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg text-white">
-              <Image src="/path.svg" alt="Ilocos Norte Tourism Path Planner" width={24} height={24} />
+              <Image src="/map-pin-area.svg" alt="Ilocos Norte Tourism Path Planner" width={20} height={20} />
             </span>
             <span>Ilocos Norte Tourism Path Planner</span>
           </div>
