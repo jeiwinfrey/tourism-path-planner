@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import Map from "@/components/map";
 import churchesData from "@/data/churches.json";
 import beachesData from "@/data/beaches.json";
 import museumsData from "@/data/museums.json";
@@ -200,19 +201,9 @@ export default function MapPage() {
           )}
         </div>
 
-        {/* Right Column - Map Placeholder */}
-        <div className="hidden md:block flex-1 bg-slate-100 relative border-l border-slate-200">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Image
-              src="/map-bottom-right.png"
-              alt="Map Background"
-              fill
-              className="object-cover opacity-10 grayscale"
-            />
-            <Button className="z-10 rounded-full bg-white text-slate-900 hover:bg-slate-50 shadow-lg border border-slate-200 px-6">
-              Map Integration Pending
-            </Button>
-          </div>
+        {/* Right Column - Map */}
+        <div className="hidden md:block flex-1 relative border-l border-slate-200">
+          <Map destinations={destinations} />
         </div>
       </div>
     </div>
