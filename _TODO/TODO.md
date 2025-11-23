@@ -3,9 +3,9 @@
 ## Simple Map & Routing Integration
 
 ### 1. Map Setup (Mapbox)
-- [ ] Install Mapbox GL JS and React Map GL packages
-- [ ] Create a basic Mapbox map component
-- [ ] Add map to the map page
+- [x] Install Mapbox GL JS and React Map GL packages
+- [x] Create a basic Mapbox map component
+- [x] Add map to the map page
 
 ### 2. Routing Setup (OSRM or GraphHopper)
 ## This is for the directions API and the calculation of distances to be used as weights of each node for the UCS
