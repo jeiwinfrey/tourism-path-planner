@@ -17,7 +17,26 @@ npm install
 
 Run this once when you first clone the repo or when dependencies change.
 
-### 2. Run the dev server
+### 2. Set up Mapbox API key
+
+The map feature requires a Mapbox access token:
+
+1. **Message me**
+
+2. **Create `.env.local` file:**
+   - In the project root (`tourism-path-planner`), create a file named `.env.local`
+   - Add your Mapbox token:
+
+   ```bash
+   NEXT_PUBLIC_MAPBOX_TOKEN=token_here
+   ```
+
+3. **Important:** 
+   - Never commit `.env.local` to git (it's already in `.gitignore`)
+   - Don't do anything stupid as it might cost me money
+   - Don't share to others
+
+### 3. Run the dev server
 
 ```bash
 npm run dev
@@ -25,13 +44,13 @@ npm run dev
 
 Then open `http://localhost:3000` in your browser.
 
-### 3. Main screens
+### 4. Main screens
 
 - `/` – Welcome / landing page  
 - `/onboarding` – Select interests (churches, beaches, museums, etc.)  
 - `/map` – Airbnb-style list + map placeholder using data from `data/*.json`
 
-### 4. Editing destination data
+### 5. Editing destination data
 
 - Destination data is split by interest in the `data/` folder:
   - `churches.json`, `beaches.json`, `museums.json`, `nature.json`, `landmarks.json`, `history.json`, `cuisine.json`, `shopping.json`
@@ -39,7 +58,7 @@ Then open `http://localhost:3000` in your browser.
   - `id`, `title`, `description`, `rating`, `reviews`, `type`, `timeRange`, `latitude`, `longitude`, `image`
 - After editing JSON, just save the file; Next.js will hot-reload.
 
-### 5. Notes
+### 6. Notes
 
 - Images use `next/image` and remote URLs from `images.unsplash.com` (already configured in `next.config.ts`).
 - If `npm run dev` fails, try deleting `node_modules` and `package-lock.json`, then run `npm install` again.
